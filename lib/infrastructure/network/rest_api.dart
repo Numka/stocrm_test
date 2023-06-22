@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart' as dio;
-import 'package:stocrm_app/global/values.dart';
 import 'package:stocrm_app/infrastructure/network/request.dart';
 
 class RestAPI {
@@ -22,5 +21,6 @@ class RestAPI {
     if (request.method == RequestMethod.get) {
       return await client.get(Uri.encodeFull(request.url), queryParameters: request.queryParameters);
     }
+    return null;
   }
 }
