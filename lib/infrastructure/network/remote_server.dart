@@ -26,9 +26,8 @@ class RemoteServer implements ServerInterface {
     );
     final response = await apiOffers.makeRequest(request);
 
-    //converter from Map<String, dynamic> to
-    final List<dynamic> tempResult = response?.data["RESPONSE"]["DATA"];
-    final result = tempResult.map((offer) {
+    final List<dynamic> responseData = response?.data["RESPONSE"]["DATA"];
+    final result = responseData.map((offer) {
       return OfferEntity.fromJson(offer);
     }).toList();
     return result;
